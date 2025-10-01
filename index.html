@@ -8,179 +8,190 @@
 <!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com"></script>
 
-<!-- Swiper CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
-
-<!-- AOS Animation -->
+<!-- AOS Animations -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <style>
-  body { scroll-behavior: smooth; }
-  
-  /* Hero Section with background image */
-  .hero-bg {
-    background: url('https://www.vocso.com/blog/wp-content/uploads/2022/08/free-video-editing-software.jpg') center/cover no-repeat;
-    position: relative;
+  body {
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    background-color: #0f0f0f;
+    color: #f5f5f5;
   }
-  .hero-overlay {
+
+  /* Hero */
+  .hero { 
+    position: relative; 
+    min-height: 100vh; 
+    display:flex; flex-direction: column; justify-content: center; align-items:center; text-align:center; padding:2rem; 
+    background: url('https://www.vocso.com/blog/wp-content/uploads/2022/08/free-video-editing-software.jpg') center/cover no-repeat;
+    background-size: cover;
+    color: #ffffff;
+  }
+
+  .hero::before {
+    content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.6); /* dark overlay for readability */
+    z-index: 0;
   }
+
   .hero-content { position: relative; z-index: 10; }
 
-  /* Swiper slide styling */
-  .swiper-slide {
-    background: #0f172a;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  .btn {
+    padding: 12px 28px;
+    border-radius: 8px;
+    background-color: #1f1f1f;
+    color: #ffffff;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease;
+    z-index: 10;
   }
-  iframe { border-radius: 12px; }
+  .btn:hover { background-color: #333333; }
+
+  /* About */
+  .about-section img {
+    border-radius: 16px;
+    max-width: 100%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  }
+  .badge {
+    background-color: #222222;
+    color: #f5f5f5;
+    padding: 6px 14px;
+    border-radius: 12px;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  /* Works */
+  .work-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 10;
+  }
+  .work-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+  }
+  .work-card iframe {
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  @media (min-width: 768px) { .aspect-video { aspect-ratio: 16/9; } }
+  @media (max-width: 767px) { .aspect-video { aspect-ratio: 9/16; } }
+
+  /* Contact */
+  .contact-btn {
+    background: #1f1f1f;
+    border-radius: 12px;
+    padding: 14px 28px;
+    color: #f5f5f5;
+    font-weight: 600;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+  .contact-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+  }
 </style>
 </head>
-<body class="bg-gray-900 text-white font-sans">
+<body>
 
 <!-- Hero Section -->
-<section class="hero-bg min-h-screen flex flex-col justify-center items-center text-center text-white">
-  <div class="hero-overlay"></div>
-  <div class="hero-content px-6">
-    <h1 class="text-6xl sm:text-7xl font-extrabold mb-4" data-aos="fade-down">Logeshwaran</h1>
-    <p class="text-xl sm:text-2xl text-gray-200 mb-8" data-aos="fade-up" data-aos-delay="200">
-      🎬 Video Editor | Reels • Podcasts • Storytelling
-    </p>
-    <a href="#works" class="px-8 py-4 bg-teal-500 rounded-full text-lg font-semibold hover:bg-cyan-400 transition" data-aos="zoom-in" data-aos-delay="400">
-      View My Work
-    </a>
+<section class="hero" data-aos="fade-down">
+  <div class="hero-content">
+    <h1 class="text-6xl font-extrabold mb-6">Logeshwaran</h1>
+    <p class="text-xl mb-8 text-gray-200">🎬 Video Editor | Reels • Podcasts • Storytelling</p>
+    <a href="#works" class="btn">View My Work</a>
   </div>
 </section>
 
 <!-- About Section -->
-<section class="max-w-6xl mx-auto py-20 px-6" id="about">
-  <div class="flex flex-col lg:flex-row items-center gap-12">
-    <!-- Image -->
-    <div class="lg:w-1/2" data-aos="fade-right">
-      <img src="https://www.vocso.com/blog/wp-content/uploads/2022/08/free-video-editing-software.jpg" alt="Video Editing" class="rounded-2xl shadow-lg"/>
-    </div>
-    <!-- Text -->
-    <div class="lg:w-1/2 text-center lg:text-left" data-aos="fade-left">
-      <h2 class="text-4xl font-bold mb-4 text-cyan-400">About Me</h2>
+<section id="about" class="about-section py-32 px-8" data-aos="fade-up">
+  <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
+    <img src="https://www.vocso.com/blog/wp-content/uploads/2022/08/free-video-editing-software.jpg" alt="Video Editing" class="md:w-1/2"/>
+    <div class="md:w-1/2 text-center md:text-left">
+      <h2 class="text-4xl font-bold mb-6 text-white">About Me</h2>
       <p class="text-gray-300 mb-6 text-lg leading-relaxed">
-        I’m a freelance video editor who crafts professional and engaging edits for 
-        <span class="text-cyan-400 font-semibold">Instagram Reels</span>, 
-        <span class="text-cyan-400 font-semibold">podcasts</span>, and 
-        <span class="text-cyan-400 font-semibold">storytelling projects</span>.  
-        I focus on smooth transitions, dynamic cuts, and visually appealing storytelling that keeps viewers hooked.
+        I’m a freelance video editor creating professional edits for 
+        <span class="font-semibold">Instagram Reels</span>, 
+        <span class="font-semibold">podcasts</span>, and 
+        <span class="font-semibold">storytelling projects</span>.  
+        I focus on smooth transitions, dynamic cuts, and visually appealing storytelling.
       </p>
-      <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
-        <span class="bg-teal-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Reels Editing</span>
-        <span class="bg-teal-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Podcast Highlights</span>
-        <span class="bg-teal-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Storytelling</span>
-        <span class="bg-teal-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Transitions & Effects</span>
+      <div class="flex gap-3 flex-wrap justify-center md:justify-start">
+        <span class="badge">Reels Editing</span>
+        <span class="badge">Podcast Highlights</span>
+        <span class="badge">Storytelling</span>
+        <span class="badge">Transitions & Effects</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Works / Video Slider Section -->
-<section class="max-w-6xl mx-auto py-20 px-6" id="works">
-  <h2 class="text-4xl font-bold text-center mb-12 text-cyan-400" data-aos="fade-up">My Works</h2>
-  
-  <div class="swiper mySwiper" data-aos="fade-up" data-aos-delay="200">
-    <div class="swiper-wrapper">
+<!-- Works Section -->
+<section id="works" class="py-32 px-8" data-aos="fade-up">
+  <h2 class="text-4xl font-bold mb-12 text-center text-white">My Works</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
 
-      <!-- Slides -->
-      <div class="swiper-slide p-6">
-        <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/qxXs2hUX5EA?controls=0&modestbranding=1&rel=0" allowfullscreen></iframe>
-        <h3 class="mt-4 font-semibold text-xl text-center">Short Video 1</h3>
-        <p class="text-gray-400 text-sm text-center mt-1">Creative edit showcasing smooth transitions</p>
-      </div>
-
-      <div class="swiper-slide p-6">
-        <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/FPB9UA3_M2I?controls=0&modestbranding=1&rel=0" allowfullscreen></iframe>
-        <h3 class="mt-4 font-semibold text-xl text-center">Short Video 2</h3>
-        <p class="text-gray-400 text-sm text-center mt-1">Dynamic reels edit for Instagram style</p>
-      </div>
-
-      <div class="swiper-slide p-6">
-        <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/32fC-AMkGEM?controls=0&modestbranding=1&rel=0" allowfullscreen></iframe>
-        <h3 class="mt-4 font-semibold text-xl text-center">Short Video 3</h3>
-        <p class="text-gray-400 text-sm text-center mt-1">Quick storytelling short edit</p>
-      </div>
-
-      <div class="swiper-slide p-6">
-        <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/mx_DTeZlLQM?controls=0&modestbranding=1&rel=0" allowfullscreen></iframe>
-        <h3 class="mt-4 font-semibold text-xl text-center">Short Video 4</h3>
-        <p class="text-gray-400 text-sm text-center mt-1">Fast cuts and synced beats</p>
-      </div>
-
-      <div class="swiper-slide p-6">
-        <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/a7PAThxSc3U?controls=0&modestbranding=1&rel=0" allowfullscreen></iframe>
-        <h3 class="mt-4 font-semibold text-xl text-center">Short Video 5</h3>
-        <p class="text-gray-400 text-sm text-center mt-1">Trendy edit with smooth pacing</p>
-      </div>
-
-      <div class="swiper-slide p-6">
-        <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/pVbFPNmQsHA?controls=0&modestbranding=1&rel=0" allowfullscreen></iframe>
-        <h3 class="mt-4 font-semibold text-xl text-center">Short Video 6</h3>
-        <p class="text-gray-400 text-sm text-center mt-1">Podcast clip highlight edit</p>
-      </div>
-
-      <div class="swiper-slide p-6">
-        <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/z1jRw_pyJHo?controls=0&modestbranding=1&rel=0" allowfullscreen></iframe>
-        <h3 class="mt-4 font-semibold text-xl text-center">Short Video 7</h3>
-        <p class="text-gray-400 text-sm text-center mt-1">High-energy reels style edit</p>
-      </div>
-
+    <div class="work-card" data-aos="fade-up">
+      <iframe class="aspect-video" src="https://www.youtube.com/embed/zNoXmkRMFNY" allowfullscreen></iframe>
+      <h3 class="mt-4 font-semibold text-xl text-center">Video 1</h3>
     </div>
 
-    <!-- Navigation & Pagination -->
-    <div class="swiper-button-next text-cyan-400"></div>
-    <div class="swiper-button-prev text-cyan-400"></div>
-    <div class="swiper-pagination"></div>
+    <div class="work-card" data-aos="fade-up" data-aos-delay="100">
+      <iframe class="aspect-video" src="https://www.youtube.com/embed/9Veyb5wcv8A" allowfullscreen></iframe>
+      <h3 class="mt-4 font-semibold text-xl text-center">Video 2</h3>
+    </div>
+
+    <div class="work-card" data-aos="fade-up" data-aos-delay="200">
+      <iframe class="aspect-video" src="https://www.youtube.com/embed/k8yNLAAFTQc" allowfullscreen></iframe>
+      <h3 class="mt-4 font-semibold text-xl text-center">Video 3</h3>
+    </div>
+
+    <div class="work-card" data-aos="fade-up" data-aos-delay="300">
+      <iframe class="aspect-video" src="https://www.youtube.com/embed/32fC-AMkGEM" allowfullscreen></iframe>
+      <h3 class="mt-4 font-semibold text-xl text-center">Video 4</h3>
+    </div>
+
+    <div class="work-card" data-aos="fade-up" data-aos-delay="400">
+      <iframe class="aspect-video" src="https://www.youtube.com/embed/pVbFPNmQsHA" allowfullscreen></iframe>
+      <h3 class="mt-4 font-semibold text-xl text-center">Video 5</h3>
+    </div>
+
   </div>
 </section>
 
 <!-- Contact Section -->
-<section class="text-center py-20 bg-gradient-to-r from-teal-600 to-cyan-400" id="contact">
-  <h2 class="text-4xl font-bold mb-6">Let’s Work Together</h2>
-  <p class="text-lg text-gray-100 mb-6">Collaborations or hiring? Reach out below.</p>
-  <div class="flex flex-col sm:flex-row justify-center items-center gap-8">
-    <a href="https://wa.me/916369084116" target="_blank" class="flex items-center gap-2 hover:text-green-300 transition">💬 WhatsApp</a>
-    <a href="mailto:llogesh176@gmail.com" class="flex items-center gap-2 hover:text-yellow-300 transition">📧 Email</a>
-    <a href="https://www.instagram.com/loki_editor__/" target="_blank" class="flex items-center gap-2 hover:text-pink-300 transition">📷 Instagram</a>
+<section id="contact" class="py-32 px-8 text-center" data-aos="fade-up">
+  <h2 class="text-4xl font-bold mb-6 text-white">Let’s Work Together</h2>
+  <p class="text-gray-300 mb-12">Collaborations or hiring? Reach out below.</p>
+  <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+    <a href="https://wa.me/916369084116" target="_blank" class="contact-btn">💬 WhatsApp</a>
+    <a href="mailto:llogesh176@gmail.com" class="contact-btn">📧 Email</a>
+    <a href="https://www.instagram.com/loki_editor__/" target="_blank" class="contact-btn">📷 Instagram</a>
   </div>
 </section>
 
 <!-- Footer -->
-<footer class="text-center py-6 text-gray-300 text-sm bg-gray-950 border-t border-gray-800">
-  © 2025 Logeshwaran 
+<footer class="py-6 text-gray-300 text-sm text-center bg-[#111] border-t border-gray-800">
+  © 2025 Logeshwaran | NOVA ONE
 </footer>
 
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <!-- AOS JS -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
 <script>
-  AOS.init();
-
-  const swiper = new Swiper(".mySwiper", {
-    slidesPerView: 1,
-    spaceBetween: 30,
-    loop: true,
-    pagination: { el: ".swiper-pagination", clickable: true },
-    navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
-    autoplay: { delay: 5000, disableOnInteraction: false },
-  });
-
-  // Pause slider when hovering over video
-  document.querySelectorAll(".swiper-slide iframe").forEach((iframe) => {
-    iframe.addEventListener("mouseenter", () => swiper.autoplay.stop());
-    iframe.addEventListener("mouseleave", () => swiper.autoplay.start());
-  });
+  AOS.init({ duration: 1000, once: true });
 </script>
 
 </body>
 </html>
-
