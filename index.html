@@ -79,13 +79,23 @@
     transform: scale(1.03);
     box-shadow: 0 10px 25px rgba(0,0,0,0.6);
   }
-  .work-card iframe {
+
+  /* Video responsive container */
+  .video-container {
+    position: relative;
     width: 100%;
+  }
+  .video-container iframe {
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
     border-radius: 12px;
   }
-
-  @media (min-width: 768px) { .aspect-video { aspect-ratio: 16/9; } }
-  @media (max-width: 767px) { .aspect-video { aspect-ratio: 9/16; } }
+  /* Aspect ratios */
+  @media (max-width: 767px) { .video-container { padding-top: 177.77%; } } /* 9:16 mobile */
+  @media (min-width: 768px) { .video-container { padding-top: 56.25%; } }  /* 16:9 desktop */
 
   /* Contact */
   .contact-btn {
@@ -143,28 +153,43 @@
   <h2 class="text-4xl font-bold mb-12 text-center text-white">My Works</h2>
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
 
+    <!-- Video 1 -->
     <div class="work-card" data-aos="fade-up">
-      <iframe class="aspect-video" src="https://www.youtube.com/embed/zNoXmkRMFNY" allowfullscreen></iframe>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/zNoXmkRMFNY" allowfullscreen></iframe>
+      </div>
       <h3 class="mt-4 font-semibold text-xl text-center">Video 1</h3>
     </div>
 
+    <!-- Video 2 -->
     <div class="work-card" data-aos="fade-up" data-aos-delay="100">
-      <iframe class="aspect-video" src="https://www.youtube.com/embed/9Veyb5wcv8A" allowfullscreen></iframe>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/9Veyb5wcv8A" allowfullscreen></iframe>
+      </div>
       <h3 class="mt-4 font-semibold text-xl text-center">Video 2</h3>
     </div>
 
+    <!-- Video 3 -->
     <div class="work-card" data-aos="fade-up" data-aos-delay="200">
-      <iframe class="aspect-video" src="https://www.youtube.com/embed/k8yNLAAFTQc" allowfullscreen></iframe>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/k8yNLAAFTQc" allowfullscreen></iframe>
+      </div>
       <h3 class="mt-4 font-semibold text-xl text-center">Video 3</h3>
     </div>
 
+    <!-- Video 4 -->
     <div class="work-card" data-aos="fade-up" data-aos-delay="300">
-      <iframe class="aspect-video" src="https://www.youtube.com/embed/32fC-AMkGEM" allowfullscreen></iframe>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/32fC-AMkGEM" allowfullscreen></iframe>
+      </div>
       <h3 class="mt-4 font-semibold text-xl text-center">Video 4</h3>
     </div>
 
+    <!-- Video 5 -->
     <div class="work-card" data-aos="fade-up" data-aos-delay="400">
-      <iframe class="aspect-video" src="https://www.youtube.com/embed/pVbFPNmQsHA" allowfullscreen></iframe>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/pVbFPNmQsHA" allowfullscreen></iframe>
+      </div>
       <h3 class="mt-4 font-semibold text-xl text-center">Video 5</h3>
     </div>
 
